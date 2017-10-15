@@ -51,7 +51,6 @@ public class XApi {
         return instance;
     }
 
-
     public static <S> S get(String baseUrl, Class<S> service) {
         return getInstance().getRetrofit(baseUrl, true).create(service);
     }
@@ -115,18 +114,22 @@ public class XApi {
         builder.readTimeout(provider.configReadTimeoutMills() != 0
                 ? provider.configReadTimeoutMills() : readTimeoutMills, TimeUnit.MILLISECONDS);
 
+        // TODO: 2017/10/14 0014 for what?
         CookieJar cookieJar = provider.configCookie();
         if (cookieJar != null) {
             builder.cookieJar(cookieJar);
         }
+        // TODO: 2017/10/14 0014 for what
         provider.configHttps(builder);
 
+        // TODO: 2017/10/14 0014 for what
         RequestHandler handler = provider.configHandler();
         if (handler != null) {
             builder.addInterceptor(new XInterceptor(handler));
         }
 
         if (provider.dispatchProgressEnable()) {
+            // TODO: 2017/10/14 0014 learn
             builder.addInterceptor(ProgressHelper.get().getInterceptor());
         }
 
@@ -138,6 +141,7 @@ public class XApi {
         }
 
         if (provider.configLogEnable()) {
+            // TODO: 2017/10/14 0014 learn
             LogInterceptor logInterceptor = new LogInterceptor();
             builder.addInterceptor(logInterceptor);
         }
@@ -203,6 +207,7 @@ public class XApi {
                     public Publisher<T> apply(T model) throws Exception {
 
                         if (model == null || model.isNull()) {
+                            // TODO: 2017/10/14 0014 model null
                             return Flowable.error(new NetError(model.getErrorMsg(), NetError.NoDataError));
                         } else if (model.isAuthError()) {
                             return Flowable.error(new NetError(model.getErrorMsg(), NetError.AuthError));

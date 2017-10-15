@@ -6,6 +6,7 @@ import android.view.View;
  * Created by wanglei on 2016/12/29.
  */
 
+// TODO: 2017/10/14 0014 for what?
 public interface VDelegate {
     void resume();
 

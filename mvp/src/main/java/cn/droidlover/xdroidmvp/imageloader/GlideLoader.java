@@ -3,6 +3,7 @@ package cn.droidlover.xdroidmvp.imageloader;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.WorkerThread;
 import android.widget.ImageView;
 
 import com.bumptech.glide.DrawableTypeRequest;
@@ -83,6 +84,7 @@ public class GlideLoader implements ILoader {
         load(getRequestManager(target.getContext()).load(file), target, options);
     }
 
+    @WorkerThread
     @Override
     public void clearMemoryCache(Context context) {
         Glide.get(context).clearMemory();

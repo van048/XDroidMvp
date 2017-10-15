@@ -11,6 +11,7 @@ import okhttp3.OkHttpClient;
 public interface NetProvider {
     Interceptor[] configInterceptors();
 
+    // TODO: 2017/10/14 0014 for what 配置https
     void configHttps(OkHttpClient.Builder builder);
 
     CookieJar configCookie();

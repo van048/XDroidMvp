@@ -18,6 +18,7 @@ public class XInterceptor implements Interceptor {
         this.handler = handler;
     }
 
+    // TODO: 2017/10/14 0014 learn
     @Override
     public Response intercept(Chain chain) throws IOException {
         Request request = chain.request();

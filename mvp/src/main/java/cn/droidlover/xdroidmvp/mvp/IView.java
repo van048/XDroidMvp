@@ -10,6 +10,7 @@ import android.view.View;
 public interface IView<P> {
     void bindUI(View rootView);
 
+    // TODO: 2017/10/14 0014 for what?
     void bindEvent();
 
     void initData(Bundle savedInstanceState);

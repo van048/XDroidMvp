@@ -41,6 +41,7 @@ public abstract class XFragment<P extends IPresent> extends RxFragment implement
             rootView = inflater.inflate(getLayoutId(), null);
             bindUI(rootView);
         } else {
+            // TODO: 2017/10/14 0014 maybe getLayoutId() == 0
             ViewGroup viewGroup = (ViewGroup) rootView.getParent();
             if (viewGroup != null) {
                 viewGroup.removeView(rootView);
